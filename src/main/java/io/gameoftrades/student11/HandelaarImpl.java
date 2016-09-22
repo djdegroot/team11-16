@@ -1,4 +1,4 @@
-package io.gameoftrades.studentNN;
+package io.gameoftrades.student11;
 
 import io.gameoftrades.model.Handelaar;
 import io.gameoftrades.model.algoritme.HandelsplanAlgoritme;

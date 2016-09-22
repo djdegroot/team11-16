@@ -1,6 +1,6 @@
 package io.gameoftrades.ui;
 
-import io.gameoftrades.studentNN.HandelaarImpl;
+import io.gameoftrades.student11.HandelaarImpl;
 
 /**
  * Toont de visuele gebruikersinterface.
@@ -10,7 +10,7 @@ import io.gameoftrades.studentNN.HandelaarImpl;
 public class StudentUI {
 
 	public static void main(String[] args) {
-		MainGui.toon(new HandelaarImpl(), "/kaarten/voorbeeld-kaart.txt");
+		MainGui.toon(new HandelaarImpl(), "/kaarten/westeros-kaart.txt");
 	}
 	
 }
