@@ -26,7 +26,6 @@ public class WereldLaderImplTest {
     public void init() {
         lader = new WereldLaderImpl();
     }
-
     @Test
     public void zouVoorbeeldKaartMoetenLaden() {
         Wereld wereld = lader.laad("/kaarten/voorbeeld-kaart.txt");
