@@ -9,6 +9,7 @@ import io.gameoftrades.model.kaart.Coordinaat;
 import io.gameoftrades.model.kaart.Kaart;
 import io.gameoftrades.model.kaart.Pad;
 import io.gameoftrades.model.kaart.Richting;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -38,11 +39,7 @@ Kaart kaart;
         for(int i = 0; i<bewegingen.length; i++){
             
             coordinaat = coordinaat.naar(bewegingen[i]);
-            System.out.println(coordinaat.getX());
-            System.out.println(coordinaat.getY());
-            System.out.println(kaart.getTerreinOp(coordinaat).getTerreinType().getLetter());
            totaleTijd = totaleTijd + kaart.getTerreinOp(coordinaat).getTerreinType().getBewegingspunten();//fout zit hier ergens ik kan hem niet vinden nullpointer
-            System.out.println(totaleTijd);
         }
         return (int) totaleTijd;
     }
@@ -60,6 +57,9 @@ Kaart kaart;
         Richting temp = bewegingen[i];
         bewegingen[i] = bewegingen[bewegingen.length - i - 1];
         bewegingen[bewegingen.length - i - 1] = temp;
+        }
+        for(int i = 0; i< bewegingen.length; i++){
+            bewegingen[i] = bewegingen[i].omgekeerd();
         }
         PadImpl pad = new PadImpl(bewegingen, begin, kaart);
         return pad;

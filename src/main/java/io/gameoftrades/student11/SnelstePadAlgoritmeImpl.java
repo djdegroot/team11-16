@@ -47,7 +47,6 @@ public class SnelstePadAlgoritmeImpl implements SnelstePadAlgoritme, Debuggable 
         boolean bestaancheckclosed = false;
 
         while (!openlist.isEmpty()) {
-            System.out.println(Current.getCoordinaat());
             closedlist.add(Current);
             openlist.remove(Current);
 
@@ -64,7 +63,7 @@ public class SnelstePadAlgoritmeImpl implements SnelstePadAlgoritme, Debuggable 
                             bestaancheckopen = true;
                         } else {
                             bestaancheckopen = false;
-                            if (c.getGscore() < GscoreTotaal) {
+                            if (c.getGscore() < (Current.getGscore() + kaart.getTerreinOp(c.getCoordinaat()).getTerreinType().getBewegingspunten())) {
                                 c.setParent(Current);
                                 c.setGscore(GscoreTijdelijk);
                             }
@@ -83,8 +82,8 @@ public class SnelstePadAlgoritmeImpl implements SnelstePadAlgoritme, Debuggable 
                     }
                 }
                 if (bestaancheckopen && bestaancheckclosed) {
-                    Gscore = kaart.getTerreinOp(Eind).getTerreinType().getBewegingspunten();
-                    GscoreTijdelijk = Gscore + GscoreTotaal;
+                    Gscore = kaart.getTerreinOp(tijdelijkCoordinaat).getTerreinType().getBewegingspunten();
+                    GscoreTijdelijk = Current.getGscore() + Gscore;
                     mogelijk = new Terrain(GscoreTijdelijk, tijdelijkCoordinaat, Eind, Current);
                     openlist.add(mogelijk);
                 }
