@@ -13,7 +13,6 @@ import io.gameoftrades.model.markt.Handelswaar;
 import io.gameoftrades.model.markt.Markt;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -95,17 +94,12 @@ public class WereldLaderImpl implements WereldLader {
         List<Stad> StedenList = new ArrayList<>();
         for (int i = 0; i < aantalSteden; i++) {
             input = scanner.nextLine().trim();
-            System.out.println(input);
             StedenSplitList = input.split(",");
-            StadX = Integer.parseInt(StedenSplitList[0]);
-            StadY = Integer.parseInt(StedenSplitList[1]);
+            StadX  = Integer.parseInt(StedenSplitList[0]) -1;
+            StadY  = Integer.parseInt(StedenSplitList[1]) -1;
             StadNaam = StedenSplitList[2];
-            if (kaart.getTerreinOp(Coordinaat.op(StadX, StadY)).getTerreinType().equals(TerreinType.STAD)){
-                throw new java.lang.IllegalArgumentException();
-            }
             Stad t = new Stad(Coordinaat.op(StadX, StadY), StadNaam);
             StedenList.add(t);
-            System.out.println(t);
         }
 
         input = scanner.nextLine().trim();
@@ -120,7 +114,6 @@ public class WereldLaderImpl implements WereldLader {
         for (int i = 0; i < aantalHandel; i++) {
             String handelTypeSwitch;
             input = scanner.nextLine().trim();
-            System.out.println(input);
             HandelSplitList = input.split(",");
             StadNaam = HandelSplitList[0];
             Stad t = null;
@@ -144,7 +137,6 @@ public class WereldLaderImpl implements WereldLader {
             prijs = Integer.parseInt(HandelSplitList[3]);
             Handel h = new Handel(t, handel, handelwaar, prijs);
             HandelList.add(h);
-            System.out.println(h);
         }
         Markt m = new Markt(HandelList);
         Wereld wereld = new Wereld(kaart, StedenList, m);
