@@ -11,53 +11,64 @@ import io.gameoftrades.model.kaart.Coordinaat;
  *
  * @author djdeg
  */
-public class Terrain {
+public class Terrain 
+{
     private double Hscore;
     private double Gscore;
     private Coordinaat coordinaat;
     private Terrain parent;
-    
-    public Terrain(double Gscore, Coordinaat coordinaat, Coordinaat eind){
+        //maakt een extra classe terrain aan om te gebruiken als nodes. Hierin worden de parents coordinaten en gscore en hscore bijgehouden
+    public Terrain(double Gscore, Coordinaat coordinaat, Coordinaat eind)
+    {
         this.Gscore = Gscore;
         this.Hscore = coordinaat.afstandTot(eind);
         this.coordinaat = coordinaat;
     }
-    public Terrain(double Gscore, Coordinaat coordinaat, Coordinaat eind, Terrain parent){
+    public Terrain(double Gscore, Coordinaat coordinaat, Coordinaat eind, Terrain parent)
+    {
         this.Gscore = Gscore;
         this.Hscore = coordinaat.afstandTot(eind);
         this.coordinaat = coordinaat;
         this.parent = parent;
     }
-    public double getHscore(){
+    public double getHscore()
+    {
         return Hscore;
     }
     
-    public double getGscore(){
+    public double getGscore()
+    {
         
         return Gscore;
     }
     
-    public Coordinaat getCoordinaat(){
+    public Coordinaat getCoordinaat()
+    {
         return coordinaat;
     }
     
-    public Terrain getParent(){
+    public Terrain getParent()
+    {
         return parent;
     }
     
-    public double getFscore(){
+    public double getFscore()
+    {
         return Hscore + Gscore;
     }
     
-    public void setHscore(Coordinaat eind){
+    public void setHscore(Coordinaat eind)
+    {
         Hscore = coordinaat.afstandTot(eind);
     }
     
-    public void setGscore(double Gscore){
+    public void setGscore(double Gscore)
+    {
         this.Gscore = Gscore;
     }
     
-    public void setParent(Terrain parent){
+    public void setParent(Terrain parent)
+    {
         this.parent = parent;
     }
 }

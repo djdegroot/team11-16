@@ -1,8 +1,6 @@
 package io.gameoftrades.student11;
 
-import io.gameoftrades.student11.HandelaarImpl;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.HashSet;
@@ -13,7 +11,6 @@ import org.junit.Test;
 
 import io.gameoftrades.model.Handelaar;
 import io.gameoftrades.model.Wereld;
-import io.gameoftrades.model.algoritme.HandelsplanAlgoritme;
 import io.gameoftrades.model.algoritme.SnelstePadAlgoritme;
 import io.gameoftrades.model.algoritme.StedenTourAlgoritme;
 import io.gameoftrades.model.kaart.Coordinaat;
@@ -21,10 +18,6 @@ import io.gameoftrades.model.kaart.Kaart;
 import io.gameoftrades.model.kaart.Pad;
 import io.gameoftrades.model.kaart.Stad;
 import io.gameoftrades.model.lader.WereldLader;
-import io.gameoftrades.model.markt.Handelsplan;
-import io.gameoftrades.model.markt.actie.Actie;
-import io.gameoftrades.model.markt.actie.BeweegActie;
-import io.gameoftrades.model.markt.actie.HandelsPositie;
 
 /**
  * Een verzameling eenvoudige tests om te kijken of de handelaar werkt.
@@ -80,7 +73,7 @@ public class HandelaarImplTest {
         assertEquals(van.getCoordinaat(), bron);
     }
 
-   /* @Test
+    @Test
     public void zouEenRouteMoetenVinden() {
         Wereld wereld = handelaar.nieuweWereldLader().laad("/kaarten/voorbeeld-kaart.txt");
         assertNotNull(wereld);
@@ -94,7 +87,7 @@ public class HandelaarImplTest {
         assertEquals(4, result.size());
         assertEquals(4, new HashSet<>(result).size()); // check duplicaten.
     }
-
+/*
     @Test
     public void zouEenHandelsplanMoetenMaken() {
         Wereld wereld = handelaar.nieuweWereldLader().laad("/kaarten/voorbeeld-kaart.txt");
