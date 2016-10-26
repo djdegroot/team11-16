@@ -26,7 +26,7 @@ public class StedenTourAlgoritmeImpl implements StedenTourAlgoritme, Debuggable 
     @Override
     public List<Stad> bereken(Kaart kaart, List<Stad> notvisited) 
     {
-        LinkedList<Stad> visited = new LinkedList(); //visited list aanmaken
+        LinkedList<Stad> visited = new LinkedList(); //visited list aanmaken 
         Stad Current = notvisited.get(0);
         visited.add(Current); //het beginvakje erin zetten
         Pad pad;
